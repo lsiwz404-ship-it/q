@@ -3,27 +3,18 @@ const fs = require('fs');
 const path = require('path');
 const kill = require('tree-kill');
 
-// runtime registry: botId -> { proc, status, startedAt, wantStop, restartHistory, timer }
 const running = new Map();
-
 const BOTS_DIR = path.join(__dirname, 'bots');
-const MAX_RESTARTS_PER_HOUR = 20; // safety brake against infinite crash loops
+const MAX_RESTARTS_PER_HOUR = 20;
 
-function botDir(botId) {
-  return path.join(BOTS_DIR, botId);
-}
-
-function logFile(botId) {
-  return path.join(botDir(botId), 'run.log');
-}
+function botDir(botId) { return path.join(BOTS_DIR, botId); }
+function logFile(botId) { return path.join(botDir(botId), 'run.log'); }
 
 function appendLog(botId, line) {
   try {
     const stamp = new Date().toLocaleTimeString('en-GB');
     fs.appendFileSync(logFile(botId), `[${stamp}] ${line}\n`);
-  } catch (e) {
-    // ignore
-  }
+  } catch(e) {}
 }
 
 function getStatus(botId) {
@@ -31,9 +22,7 @@ function getStatus(botId) {
   return entry ? entry.status : 'stopped';
 }
 
-function getEntry(botId) {
-  return running.get(botId);
-}
+function getEntry(botId) { return running.get(botId); }
 
 function readLogs(botId, lines = 300) {
   const file = logFile(botId);
@@ -44,18 +33,14 @@ function readLogs(botId, lines = 300) {
 }
 
 function clearLogs(botId) {
-  try {
-    fs.writeFileSync(logFile(botId), '');
-  } catch (e) {}
+  try { fs.writeFileSync(logFile(botId), ''); } catch(e) {}
 }
 
-// ---------- language detection ----------
 function detectLanguage(dir, entryFile) {
   const ext = path.extname(entryFile).toLowerCase();
   if (ext === '.py') return 'python';
   if (ext === '.js' || ext === '.mjs' || ext === '.cjs') return 'node';
   if (fs.existsSync(path.join(dir, 'requirements.txt'))) return 'python';
-  if (fs.existsSync(path.join(dir, 'package.json'))) return 'node';
   return 'node';
 }
 
@@ -63,59 +48,65 @@ function pythonCmd() {
   return process.platform === 'win32' ? 'python' : 'python3';
 }
 
-function installDeps(botId, dir, language, cb) {
-  if (language === 'python') {
-    const reqPath = path.join(dir, 'requirements.txt');
-    if (!fs.existsSync(reqPath)) return cb(null);
-    appendLog(botId, '⏳ تثبيت مكتبات Python (pip install -r requirements.txt)...');
-    const install = spawn(pythonCmd(), ['-m', 'pip', 'install', '--no-cache-dir', '--disable-pip-version-check', '-r', 'requirements.txt'], {
-      cwd: dir,
-      shell: true
-    });
-    let stderrBuf = '';
-    install.stdout.on('data', (d) => appendLog(botId, d.toString().trim()));
-    install.stderr.on('data', (d) => { const s = d.toString(); stderrBuf += s; appendLog(botId, s.trim()); });
-    install.on('close', (code) => {
+function pipInstall(botId, dir, cb) {
+  // Try pip3 first, then python3 -m pip, then python -m pip
+  const reqPath = path.join(dir, 'requirements.txt');
+  if (!fs.existsSync(reqPath)) return cb(null);
+
+  appendLog(botId, '⏳ تثبيت مكتبات Python...');
+
+  // Try pip3 directly
+  const tryCommands = [
+    ['pip3', ['install', '--no-cache-dir', '-r', 'requirements.txt']],
+    ['pip', ['install', '--no-cache-dir', '-r', 'requirements.txt']],
+    [pythonCmd(), ['-m', 'pip', 'install', '--no-cache-dir', '-r', 'requirements.txt']],
+  ];
+
+  function tryNext(i) {
+    if (i >= tryCommands.length) {
+      appendLog(botId, '❌ فشل تثبيت مكتبات Python — pip غير متوفر');
+      return cb(new Error('pip not found'));
+    }
+    const [cmd, args] = tryCommands[i];
+    const proc = spawn(cmd, args, { cwd: dir, shell: true });
+    let output = '';
+    proc.stdout.on('data', d => { output += d; appendLog(botId, d.toString().trim()); });
+    proc.stderr.on('data', d => { output += d; });
+    proc.on('close', code => {
       if (code === 0) {
         appendLog(botId, '✅ تم تثبيت مكتبات Python بنجاح');
-        return cb(null);
+        cb(null);
+      } else {
+        tryNext(i + 1);
       }
-      if (stderrBuf.includes('t64.exe') || stderrBuf.includes('distlib')) {
-        appendLog(botId, '🛠️ هذا خطأ معروف في تثبيت pip على Windows (مش بسبب البوت أو الموقع). الحل: شغّل في الـ terminal: python -m pip install --upgrade --force-reinstall pip ثم أعد المحاولة.');
-        appendLog(botId, '💡 الأفضل والأضمن: نشر هذا المشروع على Railway (لينكس) بدل تشغيله محلياً على Windows — هذا الخطأ غير موجود على لينكس، وبيكون تشغيل البوت 24/7 فعلي وحقيقي.');
-      }
-      appendLog(botId, '❌ فشل تثبيت مكتبات Python (كود ' + code + ')');
-      cb(new Error('pip install failed'));
     });
-    return;
+    proc.on('error', () => tryNext(i + 1));
   }
 
+  tryNext(0);
+}
+
+function installDeps(botId, dir, language, cb) {
+  if (language === 'python') {
+    return pipInstall(botId, dir, cb);
+  }
   if (!fs.existsSync(path.join(dir, 'package.json'))) return cb(null);
   appendLog(botId, '⏳ تثبيت المكتبات (npm install)...');
-  const install = spawn('npm', ['install', '--omit=dev', '--no-audit', '--no-fund'], {
-    cwd: dir,
-    shell: true
-  });
-  install.stdout.on('data', (d) => appendLog(botId, d.toString().trim()));
-  install.stderr.on('data', (d) => appendLog(botId, d.toString().trim()));
-  install.on('close', (code) => {
-    if (code === 0) {
-      appendLog(botId, '✅ تم تثبيت المكتبات بنجاح');
-      cb(null);
-    } else {
-      appendLog(botId, '❌ فشل تثبيت المكتبات (كود ' + code + ')');
-      cb(new Error('npm install failed'));
-    }
+  const install = spawn('npm', ['install', '--omit=dev', '--no-audit', '--no-fund'], { cwd: dir, shell: true });
+  install.stdout.on('data', d => appendLog(botId, d.toString().trim()));
+  install.stderr.on('data', d => appendLog(botId, d.toString().trim()));
+  install.on('close', code => {
+    if (code === 0) { appendLog(botId, '✅ تم تثبيت المكتبات بنجاح'); cb(null); }
+    else { appendLog(botId, '❌ فشل تثبيت المكتبات (كود ' + code + ')'); cb(new Error('npm install failed')); }
   });
 }
 
-// core spawn routine, called on first start AND on every auto-restart
 function spawnProcess(botId, entryFile, language, dir, onChange) {
   appendLog(botId, '🚀 تشغيل البوت...');
   const cmd = language === 'python' ? pythonCmd() : 'node';
   const proc = spawn(cmd, [entryFile], {
     cwd: dir,
-    env: { ...process.env, PYTHONUNBUFFERED: '1', PYTHONIOENCODING: 'utf-8', PYTHONUTF8: '1' },
+    env: { ...process.env, PYTHONUNBUFFERED: '1', PYTHONIOENCODING: 'utf-8' },
     shell: false
   });
 
@@ -123,8 +114,8 @@ function spawnProcess(botId, entryFile, language, dir, onChange) {
   running.set(botId, { ...prev, proc, status: 'running', startedAt: Date.now(), wantStop: false });
   if (onChange) onChange('running');
 
-  proc.stdout.on('data', (d) => appendLog(botId, d.toString().trimEnd()));
-  proc.stderr.on('data', (d) => appendLog(botId, '⚠️ ' + d.toString().trimEnd()));
+  proc.stdout.on('data', d => appendLog(botId, d.toString().trimEnd()));
+  proc.stderr.on('data', d => appendLog(botId, '⚠️ ' + d.toString().trimEnd()));
 
   proc.on('exit', (code, signal) => {
     const entry = running.get(botId) || {};
@@ -138,11 +129,9 @@ function spawnProcess(botId, entryFile, language, dir, onChange) {
     }
 
     const now = Date.now();
-    const hourAgo = now - 60 * 60 * 1000;
-    const history = (entry.restartHistory || []).filter((t) => t > hourAgo);
-
+    const history = (entry.restartHistory || []).filter(t => t > now - 3600000);
     if (history.length >= MAX_RESTARTS_PER_HOUR) {
-      appendLog(botId, '🧯 تم تجاوز الحد الأقصى لإعادة التشغيل التلقائي (20/ساعة). افحص السجلات وأعد التشغيل يدوياً.');
+      appendLog(botId, '🧯 تجاوز الحد الأقصى لإعادة التشغيل. أعد التشغيل يدوياً.');
       running.set(botId, { ...entry, proc: null, status: 'crashed', restartHistory: history });
       if (onChange) onChange('crashed');
       return;
@@ -150,33 +139,25 @@ function spawnProcess(botId, entryFile, language, dir, onChange) {
 
     running.set(botId, { ...entry, proc: null, status: 'restarting', restartHistory: [...history, now] });
     if (onChange) onChange('restarting');
-    appendLog(botId, '♻️ إعادة تشغيل تلقائية بعد 3 ثواني (وضع 24/7)...');
+    appendLog(botId, '♻️ إعادة تشغيل تلقائية بعد 3 ثواني...');
 
     const timer = setTimeout(() => {
       const e2 = running.get(botId);
       if (!e2 || e2.wantStop) return;
       spawnProcess(botId, entryFile, language, dir, onChange);
     }, 3000);
-
     running.set(botId, { ...running.get(botId), timer });
   });
 }
 
 function startBot(botId, entryFile, onChange) {
   const current = running.get(botId);
-  if (current && (current.status === 'running' || current.status === 'starting')) {
-    return { ok: false, message: 'البوت يعمل بالفعل' };
-  }
-
+  if (current && (current.status === 'running' || current.status === 'starting')) return { ok: false };
   const dir = botDir(botId);
-  if (!fs.existsSync(dir)) {
-    return { ok: false, message: 'مجلد البوت غير موجود' };
-  }
-
+  if (!fs.existsSync(dir)) return { ok: false };
   const language = detectLanguage(dir, entryFile);
   running.set(botId, { proc: null, status: 'starting', startedAt: Date.now(), wantStop: false, restartHistory: [] });
   if (onChange) onChange('starting');
-
   installDeps(botId, dir, language, (err) => {
     if (err) {
       running.set(botId, { ...running.get(botId), proc: null, status: 'crashed' });
@@ -185,7 +166,6 @@ function startBot(botId, entryFile, onChange) {
     }
     spawnProcess(botId, entryFile, language, dir, onChange);
   });
-
   return { ok: true, language };
 }
 
@@ -198,20 +178,7 @@ function stopBot(botId, cb) {
   }
   running.set(botId, { ...entry, status: 'stopping', wantStop: true });
   appendLog(botId, '🛑 إيقاف البوت...');
-  kill(entry.proc.pid, 'SIGTERM', (err) => {
-    cb && cb(err);
-  });
+  kill(entry.proc.pid, 'SIGTERM', err => cb && cb(err));
 }
 
-module.exports = {
-  startBot,
-  stopBot,
-  getStatus,
-  getEntry,
-  readLogs,
-  clearLogs,
-  appendLog,
-  botDir,
-  detectLanguage,
-  BOTS_DIR
-};
+module.exports = { startBot, stopBot, getStatus, getEntry, readLogs, clearLogs, appendLog, botDir, detectLanguage, BOTS_DIR };
