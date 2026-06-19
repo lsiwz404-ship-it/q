@@ -7,34 +7,34 @@ const fs = require('fs');
 const path = require('path');
 const { v4: uuidv4 } = require('uuid');
 const https = require('https');
-
+ 
 const db = require('./db');
 const pm = require('./processManager');
-
+ 
 const app = express();
 const PORT = process.env.PORT || 3000;
 const MAX_BOTS_PER_USER = parseInt(process.env.MAX_BOTS_PER_USER || '5', 10);
-
+ 
 // Discord OAuth config
 const DISCORD_CLIENT_ID = process.env.DISCORD_CLIENT_ID || '';
 const DISCORD_CLIENT_SECRET = process.env.DISCORD_CLIENT_SECRET || '';
 const DISCORD_REDIRECT_URI = process.env.DISCORD_REDIRECT_URI || `http://localhost:${PORT}/auth/discord/callback`;
-
+ 
 app.set('view engine', 'ejs');
 app.set('views', path.join(__dirname, 'views'));
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
 app.use('/public', express.static(path.join(__dirname, 'public')));
-
+ 
 app.use(session({
   secret: process.env.SESSION_SECRET || 'drawbot-secret-change-me',
   resave: false,
   saveUninitialized: false,
   cookie: { maxAge: 1000 * 60 * 60 * 24 * 7 }
 }));
-
+ 
 const upload = multer({ dest: path.join(__dirname, 'uploads'), limits: { fileSize: 25 * 1024 * 1024 } });
-
+ 
 // ---------- helpers ----------
 function requireAuth(req, res, next) {
   if (!req.session.userId) return res.redirect('/login');
@@ -49,7 +49,7 @@ function findUserBot(req, botId) {
 function withLiveStatus(bot) {
   return { ...bot, liveStatus: pm.getStatus(bot.id) };
 }
-
+ 
 // ---------- Discord OAuth helpers ----------
 function discordRequest(options, body) {
   return new Promise((resolve, reject) => {
@@ -65,13 +65,13 @@ function discordRequest(options, body) {
     req.end();
   });
 }
-
+ 
 // ---------- routes ----------
 app.get('/', (req, res) => {
   if (req.session.userId) return res.redirect('/dashboard');
   res.render('landing');
 });
-
+ 
 // Discord OAuth
 app.get('/auth/discord', (req, res) => {
   if (!DISCORD_CLIENT_ID) return res.redirect('/login?error=discord_not_configured');
@@ -83,12 +83,12 @@ app.get('/auth/discord', (req, res) => {
   });
   res.redirect(`https://discord.com/api/oauth2/authorize?${params}`);
 });
-
+ 
 app.get('/auth/discord/callback', async (req, res) => {
   const { code, error } = req.query;
   if (error || !code) return res.redirect('/login?error=discord_denied');
   if (!DISCORD_CLIENT_ID) return res.redirect('/login?error=discord_not_configured');
-
+ 
   try {
     // Exchange code for token
     const tokenBody = new URLSearchParams({
@@ -98,16 +98,16 @@ app.get('/auth/discord/callback', async (req, res) => {
       code,
       redirect_uri: DISCORD_REDIRECT_URI
     }).toString();
-
+ 
     const tokenData = await discordRequest({
       hostname: 'discord.com',
       path: '/api/oauth2/token',
       method: 'POST',
       headers: { 'Content-Type': 'application/x-www-form-urlencoded', 'Content-Length': tokenBody.length }
     }, tokenBody);
-
+ 
     if (!tokenData.access_token) return res.redirect('/login?error=discord_token_fail');
-
+ 
     // Get user info
     const userInfo = await discordRequest({
       hostname: 'discord.com',
@@ -115,9 +115,9 @@ app.get('/auth/discord/callback', async (req, res) => {
       method: 'GET',
       headers: { 'Authorization': `Bearer ${tokenData.access_token}` }
     });
-
+ 
     if (!userInfo.id) return res.redirect('/login?error=discord_user_fail');
-
+ 
     // Find or create user
     let user = db.get('users').find({ discordId: userInfo.id }).value();
     if (!user) {
@@ -125,7 +125,7 @@ app.get('/auth/discord/callback', async (req, res) => {
       let username = userInfo.username || userInfo.global_name || 'discord_user';
       const existing = db.get('users').find({ username }).value();
       if (existing) username = username + '_' + userInfo.id.slice(-4);
-
+ 
       user = {
         id: uuidv4(),
         username,
@@ -140,7 +140,7 @@ app.get('/auth/discord/callback', async (req, res) => {
       // Update avatar
       db.get('users').find({ id: user.id }).assign({ discordAvatar: userInfo.avatar }).write();
     }
-
+ 
     req.session.userId = user.id;
     res.redirect('/dashboard');
   } catch(e) {
@@ -148,12 +148,12 @@ app.get('/auth/discord/callback', async (req, res) => {
     res.redirect('/login?error=discord_error');
   }
 });
-
+ 
 app.get('/register', (req, res) => {
   if (req.session.userId) return res.redirect('/dashboard');
   res.render('register', { error: null });
 });
-
+ 
 app.post('/register', (req, res) => {
   const { username, password } = req.body;
   if (!username || !password || password.length < 4) {
@@ -168,12 +168,12 @@ app.post('/register', (req, res) => {
   req.session.userId = user.id;
   res.redirect('/dashboard');
 });
-
+ 
 app.get('/login', (req, res) => {
   if (req.session.userId) return res.redirect('/dashboard');
   res.render('login', { error: req.query.error ? 'حدث خطأ أثناء تسجيل الدخول عبر Discord' : null });
 });
-
+ 
 app.post('/login', (req, res) => {
   const { username, password } = req.body;
   const user = db.get('users').find({ username }).value();
@@ -183,18 +183,18 @@ app.post('/login', (req, res) => {
   req.session.userId = user.id;
   res.redirect('/dashboard');
 });
-
+ 
 app.post('/logout', (req, res) => {
   req.session.destroy(() => res.redirect('/'));
 });
-
+ 
 // ---------- dashboard ----------
 app.get('/dashboard', requireAuth, (req, res) => {
   const user = getUser(req);
   const bots = db.get('bots').filter({ ownerId: user.id }).value().map(withLiveStatus);
   res.render('dashboard', { user, bots, maxBots: MAX_BOTS_PER_USER, isWindows: process.platform === 'win32' });
 });
-
+ 
 app.post('/bots/create', requireAuth, (req, res) => {
   const user = getUser(req);
   const myBots = db.get('bots').filter({ ownerId: user.id }).value();
@@ -208,19 +208,19 @@ app.post('/bots/create', requireAuth, (req, res) => {
   pm.appendLog(bot.id, '📦 تم إنشاء البوت. قم برفع ملفات الكود لتشغيله.');
   res.redirect('/bots/' + bot.id);
 });
-
+ 
 app.get('/bots/:id', requireAuth, (req, res) => {
   const bot = findUserBot(req, req.params.id);
   if (!bot) return res.redirect('/dashboard');
   res.render('bot', { bot: withLiveStatus(bot), logs: pm.readLogs(bot.id, 300) });
 });
-
+ 
 app.get('/bots/:id/logs', requireAuth, (req, res) => {
   const bot = findUserBot(req, req.params.id);
   if (!bot) return res.status(404).json({ error: 'not found' });
   res.json({ logs: pm.readLogs(bot.id, 300), status: pm.getStatus(bot.id) });
 });
-
+ 
 app.post('/bots/:id/upload', requireAuth, upload.single('botzip'), (req, res) => {
   const bot = findUserBot(req, req.params.id);
   if (!bot) return res.redirect('/dashboard');
@@ -241,7 +241,7 @@ app.post('/bots/:id/upload', requireAuth, upload.single('botzip'), (req, res) =>
   }
   res.redirect('/bots/' + bot.id);
 });
-
+ 
 app.post('/bots/:id/save-code', requireAuth, (req, res) => {
   const bot = findUserBot(req, req.params.id);
   if (!bot) return res.redirect('/dashboard');
@@ -261,7 +261,7 @@ app.post('/bots/:id/save-code', requireAuth, (req, res) => {
   }
   res.redirect('/bots/' + bot.id);
 });
-
+ 
 app.get('/bots/:id/code', requireAuth, (req, res) => {
   const bot = findUserBot(req, req.params.id);
   if (!bot) return res.status(404).json({ error: 'not found' });
@@ -276,21 +276,21 @@ app.get('/bots/:id/code', requireAuth, (req, res) => {
   } catch(e) {}
   res.json({ code, deps });
 });
-
+ 
 app.post('/bots/:id/start', requireAuth, (req, res) => {
   const bot = findUserBot(req, req.params.id);
   if (!bot || !bot.uploaded) return res.redirect('/bots/' + req.params.id);
   pm.startBot(bot.id, bot.entryFile);
   res.redirect('/bots/' + bot.id);
 });
-
+ 
 app.post('/bots/:id/stop', requireAuth, (req, res) => {
   const bot = findUserBot(req, req.params.id);
   if (!bot) return res.redirect('/dashboard');
   pm.stopBot(bot.id, () => {});
   res.redirect('/bots/' + bot.id);
 });
-
+ 
 app.post('/bots/:id/restart', requireAuth, (req, res) => {
   const bot = findUserBot(req, req.params.id);
   if (!bot) return res.redirect('/dashboard');
@@ -299,7 +299,7 @@ app.post('/bots/:id/restart', requireAuth, (req, res) => {
   });
   res.redirect('/bots/' + bot.id);
 });
-
+ 
 app.post('/bots/:id/delete', requireAuth, (req, res) => {
   const bot = findUserBot(req, req.params.id);
   if (!bot) return res.redirect('/dashboard');
@@ -309,7 +309,8 @@ app.post('/bots/:id/delete', requireAuth, (req, res) => {
   });
   res.redirect('/dashboard');
 });
-
+ 
 app.listen(PORT, () => {
   console.log(`Draw Bot يعمل على المنفذ ${PORT}`);
 });
+ 
