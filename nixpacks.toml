@@ -1,5 +1,5 @@
 [phases.setup]
-nixPkgs = ["nodejs_20", "python3Full"]
+nixPkgs = ["nodejs_20", "python3", "python3Packages.pip", "python3Packages.setuptools"]
  
 [start]
 cmd = "node server.js"
