@@ -1,0 +1,20 @@
+{
+  "users": [
+    {
+      "id": "3e5885f4-8d9f-47d6-88a9-bc8c0fcf6201",
+      "username": "North",
+      "password": "$2a$10$DUs1AXhDYRL9bMcMqdRududOniFTcmQRrQn6iROlOQDdBB/sFqvde",
+      "createdAt": 1781827662473
+    }
+  ],
+  "bots": [
+    {
+      "id": "46a500ec-e44d-45ab-a87b-0265cf47f24c",
+      "ownerId": "3e5885f4-8d9f-47d6-88a9-bc8c0fcf6201",
+      "name": "draw music",
+      "entryFile": "bot.py",
+      "createdAt": 1781827688093,
+      "uploaded": true
+    }
+  ]
+}

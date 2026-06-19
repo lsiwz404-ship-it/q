@@ -1,0 +1,676 @@
+📦 تم إنشاء البوت. قم برفع ملفات الكود (ZIP) لتشغيله.
+📤 تم رفع ورفع ملفات جديدة بنجاح
+🚀 تشغيل البوت...
+⚠️ node:internal/modules/esm/get_format:236
+  throw new ERR_UNKNOWN_FILE_EXTENSION(ext, filepath);
+        ^
+
+TypeError [ERR_UNKNOWN_FILE_EXTENSION]: Unknown file extension ".py" for C:\Users\Ray\Downloads\drawbot\bots\46a500ec-e44d-45ab-a87b-0265cf47f24c\bot.py
+    at Object.getFileProtocolModuleFormat [as file:] (node:internal/modules/esm/get_format:236:9)
+    at defaultGetFormat (node:internal/modules/esm/get_format:262:36)
+    at defaultLoadSync (node:internal/modules/esm/load:162:16)
+    at #loadAndMaybeBlockOnLoaderThread (node:internal/modules/esm/loader:770:12)
+    at #loadSync (node:internal/modules/esm/loader:790:49)
+    at ModuleLoader.load (node:internal/modules/esm/loader:756:26)
+    at ModuleLoader.loadAndTranslate (node:internal/modules/esm/loader:488:31)
+    at #getOrCreateModuleJobAfterResolve (node:internal/modules/esm/loader:549:36)
+    at afterResolve (node:internal/modules/esm/loader:597:52)
+    at ModuleLoader.getOrCreateModuleJob (node:internal/modules/esm/loader:603:12) {
+  code: 'ERR_UNKNOWN_FILE_EXTENSION'
+}
+
+Node.js v24.16.0
+⛔ توقف البوت (code: 1, signal: null)
+[03:16:08] 📝 تم حفظ الكود من المحرر بنجاح (bot.py)
+[03:16:11] ⏳ تثبيت مكتبات Python (pip install -r requirements.txt)...
+[03:16:13] Collecting discord.py (from -r requirements.txt (line 1))
+[03:16:14] Downloading discord_py-2.7.1-py3-none-any.whl.metadata (7.5 kB)
+[03:16:14] Collecting yt-dlp (from -r requirements.txt (line 2))
+[03:16:14] Downloading yt_dlp-2026.6.9-py3-none-any.whl.metadata (183 kB)
+[03:16:14] Collecting PyNaCl (from -r requirements.txt (line 3))
+[03:16:14] Downloading pynacl-1.6.2-cp38-abi3-win_amd64.whl.metadata (10 kB)
+[03:16:15] Collecting aiohttp<4,>=3.7.4 (from discord.py->-r requirements.txt (line 1))
+[03:16:15] Downloading aiohttp-3.14.1-cp313-cp313-win_amd64.whl.metadata (8.5 kB)
+[03:16:15] Collecting audioop-lts (from discord.py->-r requirements.txt (line 1))
+[03:16:15] Downloading audioop_lts-0.2.2-cp313-abi3-win_amd64.whl.metadata (2.0 kB)
+[03:16:15] Collecting aiohappyeyeballs>=2.5.0 (from aiohttp<4,>=3.7.4->discord.py->-r requirements.txt (line 1))
+[03:16:15] Downloading aiohappyeyeballs-2.6.2-py3-none-any.whl.metadata (5.9 kB)
+[03:16:15] Collecting aiosignal>=1.4.0 (from aiohttp<4,>=3.7.4->discord.py->-r requirements.txt (line 1))
+[03:16:16] Downloading aiosignal-1.4.0-py3-none-any.whl.metadata (3.7 kB)
+[03:16:16] Collecting attrs>=17.3.0 (from aiohttp<4,>=3.7.4->discord.py->-r requirements.txt (line 1))
+[03:16:16] Downloading attrs-26.1.0-py3-none-any.whl.metadata (8.8 kB)
+[03:16:16] Collecting frozenlist>=1.1.1 (from aiohttp<4,>=3.7.4->discord.py->-r requirements.txt (line 1))
+[03:16:16] Downloading frozenlist-1.8.0-cp313-cp313-win_amd64.whl.metadata (21 kB)
+[03:16:16] Collecting multidict<7.0,>=4.5 (from aiohttp<4,>=3.7.4->discord.py->-r requirements.txt (line 1))
+[03:16:16] Downloading multidict-6.7.1-cp313-cp313-win_amd64.whl.metadata (5.5 kB)
+[03:16:16] Collecting propcache>=0.2.0 (from aiohttp<4,>=3.7.4->discord.py->-r requirements.txt (line 1))
+[03:16:16] Downloading propcache-0.5.2-cp313-cp313-win_amd64.whl.metadata (17 kB)
+[03:16:17] Collecting yarl<2.0,>=1.17.0 (from aiohttp<4,>=3.7.4->discord.py->-r requirements.txt (line 1))
+[03:16:17] Downloading yarl-1.24.2-cp313-cp313-win_amd64.whl.metadata (97 kB)
+[03:16:17] Requirement already satisfied: idna>=2.0 in C:\Users\Ray\AppData\Local\Programs\Python\Python313\Lib\site-packages (from yarl<2.0,>=1.17.0->aiohttp<4,>=3.7.4->discord.py->-r requirements.txt (line 1)) (3.18)
+[03:16:17] Requirement already satisfied: cffi>=2.0.0 in C:\Users\Ray\AppData\Local\Programs\Python\Python313\Lib\site-packages (from PyNaCl->-r requirements.txt (line 3)) (2.0.0)
+[03:16:17] Requirement already satisfied: pycparser in C:\Users\Ray\AppData\Local\Programs\Python\Python313\Lib\site-packages (from cffi>=2.0.0->PyNaCl->-r requirements.txt (line 3)) (3.0)
+[03:16:17] Downloading discord_py-2.7.1-py3-none-any.whl (1.2 MB)
+[03:16:17] 
+[03:16:17] ---------------------------------------- 1.2/1.2 MB 8.8 MB/s  0:00:00
+[03:16:17] Downloading aiohttp-3.14.1-cp313-cp313-win_amd64.whl (479 kB)
+[03:16:17] Downloading multidict-6.7.1-cp313-cp313-win_amd64.whl (45 kB)
+[03:16:18] Downloading yarl-1.24.2-cp313-cp313-win_amd64.whl (92 kB)
+[03:16:18] Downloading yt_dlp-2026.6.9-py3-none-any.whl (3.2 MB)
+[03:16:18] ----------------------------------------
+[03:16:18] 3.2/3.2 MB 27.9 MB/s  0:00:00
+[03:16:18] Downloading pynacl-1.6.2-cp38-abi3-win_amd64.whl (239 kB)
+[03:16:18] Downloading aiohappyeyeballs-2.6.2-py3-none-any.whl (15 kB)
+[03:16:18] Downloading aiosignal-1.4.0-py3-none-any.whl (7.5 kB)
+[03:16:18] Downloading attrs-26.1.0-py3-none-any.whl (67 kB)
+[03:16:18] Downloading frozenlist-1.8.0-cp313-cp313-win_amd64.whl (43 kB)
+[03:16:18] Downloading propcache-0.5.2-cp313-cp313-win_amd64.whl (41 kB)
+[03:16:18] Downloading audioop_lts-0.2.2-cp313-abi3-win_amd64.whl (30 kB)
+[03:16:20] Installing collected packages: yt-dlp, propcache, multidict, frozenlist, audioop-lts, attrs, aiohappyeyeballs, yarl, PyNaCl, aiosignal, aiohttp, discord.py
+[03:16:32] ERROR: Exception:
+Traceback (most recent call last):
+  File "C:\Users\Ray\AppData\Local\Programs\Python\Python313\Lib\site-packages\pip\_internal\cli\base_command.py", line 109, in _run_wrapper
+    status = _inner_run()
+  File "C:\Users\Ray\AppData\Local\Programs\Python\Python313\Lib\site-packages\pip\_internal\cli\base_command.py", line 102, in _inner_run
+    return self.run(options, args)
+           ~~~~~~~~^^^^^^^^^^^^^^^
+  File "C:\Users\Ray\AppData\Local\Programs\Python\Python313\Lib\site-packages\pip\_internal\cli\req_command.py", line 101, in wrapper
+    return func(self, options, args)
+  File "C:\Users\Ray\AppData\Local\Programs\Python\Python313\Lib\site-packages\pip\_internal\commands\install.py", line 556, in run
+    installed = install_given_reqs(
+        to_install,
+    ...<6 lines>...
+        progress_bar=options.progress_bar,
+    )
+  File "C:\Users\Ray\AppData\Local\Programs\Python\Python313\Lib\site-packages\pip\_internal\req\__init__.py", line 84, in install_given_reqs
+    requirement.install(
+    ~~~~~~~~~~~~~~~~~~~^
+        root=root,
+        ^^^^^^^^^^
+    ...<4 lines>...
+        pycompile=pycompile,
+        ^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "C:\Users\Ray\AppData\Local\Programs\Python\Python313\Lib\site-packages\pip\_internal\req\req_install.py", line 791, in install
+    install_wheel(
+    ~~~~~~~~~~~~~^
+        self.req.name,
+        ^^^^^^^^^^^^^^
+    ...<6 lines>...
+        requested=self.user_supplied,
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "C:\Users\Ray\AppData\Local\Programs\Python\Python313\Lib\site-packages\pip\_internal\operations\install\wheel.py", line 750, in install_wheel
+    _install_wheel(
+    ~~~~~~~~~~~~~~^
+        name=name,
+        ^^^^^^^^^^
+    ...<6 lines>...
+        requested=requested,
+        ^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "C:\Users\Ray\AppData\Local\Programs\Python\Python313\Lib\site-packages\pip\_internal\operations\install\wheel.py", line 667, in _install_wheel
+    generated_console_scripts = maker.make_multiple(scripts_to_generate)
+  File "C:\Users\Ray\AppData\Local\Programs\Python\Python313\Lib\site-packages\pip\_vendor\distlib\scripts.py", line 446, in make_multiple
+    filenames.extend(self.make(specification, options))
+                     ~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Ray\AppData\Local\Programs\Python\Python313\Lib\site-packages\pip\_internal\operations\install\wheel.py", line 437, in make
+    return super().make(specification, options)
+           ~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Ray\AppData\Local\Programs\Python\Python313\Lib\site-packages\pip\_vendor\distlib\scripts.py", line 435, in make
+    self._make_script(entry, filenames, options=options)
+    ~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Ray\AppData\Local\Programs\Python\Python313\Lib\site-packages\pip\_vendor\distlib\scripts.py", line 340, in _make_script
+    self._write_script(scriptnames, shebang, script, filenames, ext)
+    ~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Ray\AppData\Local\Programs\Python\Python313\Lib\site-packages\pip\_vendor\distlib\scripts.py", line 265, in _write_script
+    launcher = self._get_launcher('t')
+  File "C:\Users\Ray\AppData\Local\Programs\Python\Python313\Lib\site-packages\pip\_vendor\distlib\scripts.py", line 414, in _get_launcher
+    raise ValueError(msg)
+ValueError: Unable to find resource t64.exe in package pip._vendor.distlib
+[03:16:32] 
+[03:16:32] ❌ فشل تثبيت مكتبات Python (كود 2)
+[03:23:18] 📝 تم حفظ الكود من المحرر بنجاح (bot.py)
+[03:23:23] ⏳ تثبيت مكتبات Python (pip install -r requirements.txt)...
+[03:23:24] Collecting discord.py (from -r requirements.txt (line 1))
+[03:23:24] Downloading discord_py-2.7.1-py3-none-any.whl.metadata (7.5 kB)
+[03:23:24] Requirement already satisfied: yt-dlp in C:\Users\Ray\AppData\Local\Programs\Python\Python313\Lib\site-packages (from -r requirements.txt (line 2)) (2026.6.9)
+[03:23:24] Collecting PyNaCl (from -r requirements.txt (line 3))
+[03:23:24] Downloading pynacl-1.6.2-cp38-abi3-win_amd64.whl.metadata (10 kB)
+[03:23:25] Collecting aiohttp<4,>=3.7.4 (from discord.py->-r requirements.txt (line 1))
+[03:23:25] Downloading aiohttp-3.14.1-cp313-cp313-win_amd64.whl.metadata (8.5 kB)
+[03:23:25] Collecting audioop-lts (from discord.py->-r requirements.txt (line 1))
+[03:23:25] Downloading audioop_lts-0.2.2-cp313-abi3-win_amd64.whl.metadata (2.0 kB)
+[03:23:26] Collecting aiohappyeyeballs>=2.5.0 (from aiohttp<4,>=3.7.4->discord.py->-r requirements.txt (line 1))
+[03:23:26] Downloading aiohappyeyeballs-2.6.2-py3-none-any.whl.metadata (5.9 kB)
+[03:23:26] Collecting aiosignal>=1.4.0 (from aiohttp<4,>=3.7.4->discord.py->-r requirements.txt (line 1))
+[03:23:26] Downloading aiosignal-1.4.0-py3-none-any.whl.metadata (3.7 kB)
+[03:23:26] Collecting attrs>=17.3.0 (from aiohttp<4,>=3.7.4->discord.py->-r requirements.txt (line 1))
+[03:23:26] Downloading attrs-26.1.0-py3-none-any.whl.metadata (8.8 kB)
+[03:23:26] Collecting frozenlist>=1.1.1 (from aiohttp<4,>=3.7.4->discord.py->-r requirements.txt (line 1))
+[03:23:26] Downloading frozenlist-1.8.0-cp313-cp313-win_amd64.whl.metadata (21 kB)
+[03:23:26] Collecting multidict<7.0,>=4.5 (from aiohttp<4,>=3.7.4->discord.py->-r requirements.txt (line 1))
+[03:23:26] Downloading multidict-6.7.1-cp313-cp313-win_amd64.whl.metadata (5.5 kB)
+[03:23:27] Collecting propcache>=0.2.0 (from aiohttp<4,>=3.7.4->discord.py->-r requirements.txt (line 1))
+[03:23:27] Downloading propcache-0.5.2-cp313-cp313-win_amd64.whl.metadata (17 kB)
+[03:23:27] Collecting yarl<2.0,>=1.17.0 (from aiohttp<4,>=3.7.4->discord.py->-r requirements.txt (line 1))
+[03:23:27] Downloading yarl-1.24.2-cp313-cp313-win_amd64.whl.metadata (97 kB)
+[03:23:27] Requirement already satisfied: idna>=2.0 in C:\Users\Ray\AppData\Local\Programs\Python\Python313\Lib\site-packages (from yarl<2.0,>=1.17.0->aiohttp<4,>=3.7.4->discord.py->-r requirements.txt (line 1)) (3.18)
+[03:23:27] Requirement already satisfied: cffi>=2.0.0 in C:\Users\Ray\AppData\Local\Programs\Python\Python313\Lib\site-packages (from PyNaCl->-r requirements.txt (line 3)) (2.0.0)
+[03:23:27] Requirement already satisfied: pycparser in C:\Users\Ray\AppData\Local\Programs\Python\Python313\Lib\site-packages (from cffi>=2.0.0->PyNaCl->-r requirements.txt (line 3)) (3.0)
+[03:23:27] Downloading discord_py-2.7.1-py3-none-any.whl (1.2 MB)
+[03:23:28] 
+[03:23:28] ---------------------------------------- 1.2/1.2 MB 7.5 MB/s  0:00:00
+[03:23:28] Downloading aiohttp-3.14.1-cp313-cp313-win_amd64.whl (479 kB)
+[03:23:28] Downloading multidict-6.7.1-cp313-cp313-win_amd64.whl (45 kB)
+[03:23:28] Downloading yarl-1.24.2-cp313-cp313-win_amd64.whl (92 kB)
+[03:23:28] Downloading pynacl-1.6.2-cp38-abi3-win_amd64.whl (239 kB)
+[03:23:28] Downloading aiohappyeyeballs-2.6.2-py3-none-any.whl (15 kB)
+[03:23:28] Downloading aiosignal-1.4.0-py3-none-any.whl (7.5 kB)
+[03:23:28] Downloading attrs-26.1.0-py3-none-any.whl (67 kB)
+[03:23:28] Downloading frozenlist-1.8.0-cp313-cp313-win_amd64.whl (43 kB)
+[03:23:28] Downloading propcache-0.5.2-cp313-cp313-win_amd64.whl (41 kB)
+[03:23:28] Downloading audioop_lts-0.2.2-cp313-abi3-win_amd64.whl (30 kB)
+[03:23:28] Installing collected packages: propcache, multidict, frozenlist, audioop-lts, attrs, aiohappyeyeballs, yarl, PyNaCl, aiosignal, aiohttp, discord.py
+[03:23:32] 
+[03:23:32] Successfully installed PyNaCl-1.6.2 aiohappyeyeballs-2.6.2 aiohttp-3.14.1 aiosignal-1.4.0 attrs-26.1.0 audioop-lts-0.2.2 discord.py-2.7.1 frozenlist-1.8.0 multidict-6.7.1 propcache-0.5.2 yarl-1.24.2
+[03:23:32] ✅ تم تثبيت مكتبات Python بنجاح
+[03:23:32] 🚀 تشغيل البوت...
+[03:23:33] ⚠️ [2026-06-19 03:23:33] [INFO    ] discord.client: logging in using static token
+[03:23:35] ⚠️ [2026-06-19 03:23:35] [INFO    ] discord.gateway: Shard ID None has connected to Gateway (Session ID: be5543cb6ee4ad36e0cf38d544c26a87).
+[03:23:37] ⚠️ [2026-06-19 03:23:37] [ERROR   ] discord.client: Ignoring exception in on_ready
+Traceback (most recent call last):
+  File "C:\Users\Ray\AppData\Local\Programs\Python\Python313\Lib\site-packages\discord\client.py", line 508, in _run_event
+    await coro(*args, **kwargs)
+  File "C:\Users\Ray\Downloads\drawbot\bots\46a500ec-e44d-45ab-a87b-0265cf47f24c\bot.py", line 37, in on_ready
+    print(f'\u2705 Logged in successfully as {bot.user}')
+    ~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Ray\AppData\Local\Programs\Python\Python313\Lib\encodings\cp1252.py", line 19, in encode
+    return codecs.charmap_encode(input,self.errors,encoding_table)[0]
+           ~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+UnicodeEncodeError: 'charmap' codec can't encode character '\u2705' in position 0: character maps to <undefined>
+[03:28:01] ⏳ تثبيت مكتبات Python (pip install -r requirements.txt)...
+[03:28:02] Requirement already satisfied: discord.py in C:\Users\Ray\AppData\Local\Programs\Python\Python313\Lib\site-packages (from -r requirements.txt (line 1)) (2.7.1)
+[03:28:02] Requirement already satisfied: yt-dlp in C:\Users\Ray\AppData\Local\Programs\Python\Python313\Lib\site-packages (from -r requirements.txt (line 2)) (2026.6.9)
+[03:28:02] Requirement already satisfied: PyNaCl in C:\Users\Ray\AppData\Local\Programs\Python\Python313\Lib\site-packages (from -r requirements.txt (line 3)) (1.6.2)
+[03:28:02] Requirement already satisfied: aiohttp<4,>=3.7.4 in C:\Users\Ray\AppData\Local\Programs\Python\Python313\Lib\site-packages (from discord.py->-r requirements.txt (line 1)) (3.14.1)
+[03:28:02] Requirement already satisfied: audioop-lts in C:\Users\Ray\AppData\Local\Programs\Python\Python313\Lib\site-packages (from discord.py->-r requirements.txt (line 1)) (0.2.2)
+[03:28:02] 
+[03:28:02] Requirement already satisfied: aiohappyeyeballs>=2.5.0 in C:\Users\Ray\AppData\Local\Programs\Python\Python313\Lib\site-packages (from aiohttp<4,>=3.7.4->discord.py->-r requirements.txt (line 1)) (2.6.2)
+[03:28:02] Requirement already satisfied: aiosignal>=1.4.0 in C:\Users\Ray\AppData\Local\Programs\Python\Python313\Lib\site-packages (from aiohttp<4,>=3.7.4->discord.py->-r requirements.txt (line 1)) (1.4.0)
+[03:28:02] Requirement already satisfied: attrs>=17.3.0 in C:\Users\Ray\AppData\Local\Programs\Python\Python313\Lib\site-packages (from aiohttp<4,>=3.7.4->discord.py->-r requirements.txt (line 1)) (26.1.0)
+Requirement already satisfied: frozenlist>=1.1.1 in C:\Users\Ray\AppData\Local\Programs\Python\Python313\Lib\site-packages (from aiohttp<4,>=3.7.4->discord.py->-r requirements.txt (line 1)) (1.8.0)
+[03:28:02] Requirement already satisfied: multidict<7.0,>=4.5 in C:\Users\Ray\AppData\Local\Programs\Python\Python313\Lib\site-packages (from aiohttp<4,>=3.7.4->discord.py->-r requirements.txt (line 1)) (6.7.1)
+[03:28:02] Requirement already satisfied: propcache>=0.2.0 in C:\Users\Ray\AppData\Local\Programs\Python\Python313\Lib\site-packages (from aiohttp<4,>=3.7.4->discord.py->-r requirements.txt (line 1)) (0.5.2)
+[03:28:02] Requirement already satisfied: yarl<2.0,>=1.17.0 in C:\Users\Ray\AppData\Local\Programs\Python\Python313\Lib\site-packages (from aiohttp<4,>=3.7.4->discord.py->-r requirements.txt (line 1)) (1.24.2)
+[03:28:02] Requirement already satisfied: idna>=2.0 in C:\Users\Ray\AppData\Local\Programs\Python\Python313\Lib\site-packages (from yarl<2.0,>=1.17.0->aiohttp<4,>=3.7.4->discord.py->-r requirements.txt (line 1)) (3.18)
+[03:28:02] Requirement already satisfied: cffi>=2.0.0 in C:\Users\Ray\AppData\Local\Programs\Python\Python313\Lib\site-packages (from PyNaCl->-r requirements.txt (line 3)) (2.0.0)
+[03:28:02] Requirement already satisfied: pycparser in C:\Users\Ray\AppData\Local\Programs\Python\Python313\Lib\site-packages (from cffi>=2.0.0->PyNaCl->-r requirements.txt (line 3)) (3.0)
+[03:28:02] ✅ تم تثبيت مكتبات Python بنجاح
+[03:28:02] 🚀 تشغيل البوت...
+[03:28:03] ⚠️ [2026-06-19 03:28:03] [INFO    ] discord.client: logging in using static token
+[03:28:04] ⚠️ [2026-06-19 03:28:04] [INFO    ] discord.gateway: Shard ID None has connected to Gateway (Session ID: 15765aa43d3e105ce151ec025e50a57c).
+[03:28:06] ✅ Logged in successfully as Draw#9502
+[03:28:06] ⚠️ Could not connect to voice channel: davey library needed in order to use voice
+[03:29:47] 📤 تم رفع ملفات جديدة (ZIP) بنجاح
+[03:29:52] 🛑 إيقاف البوت...
+[03:29:52] ⛔ توقف البوت (code: 1, signal: null)
+[03:29:53] ⏳ تثبيت مكتبات Python (pip install -r requirements.txt)...
+[03:29:53] Requirement already satisfied: discord.py in C:\Users\Ray\AppData\Local\Programs\Python\Python313\Lib\site-packages (from -r requirements.txt (line 1)) (2.7.1)
+[03:29:53] Requirement already satisfied: yt-dlp in C:\Users\Ray\AppData\Local\Programs\Python\Python313\Lib\site-packages (from -r requirements.txt (line 2)) (2026.6.9)
+[03:29:53] Requirement already satisfied: PyNaCl in C:\Users\Ray\AppData\Local\Programs\Python\Python313\Lib\site-packages (from -r requirements.txt (line 3)) (1.6.2)
+[03:29:54] Collecting davey (from -r requirements.txt (line 4))
+[03:29:54] Downloading davey-0.1.5-cp313-cp313-win_amd64.whl.metadata (1.9 kB)
+[03:29:54] Requirement already satisfied: aiohttp<4,>=3.7.4 in C:\Users\Ray\AppData\Local\Programs\Python\Python313\Lib\site-packages (from discord.py->-r requirements.txt (line 1)) (3.14.1)
+[03:29:54] Requirement already satisfied: audioop-lts in C:\Users\Ray\AppData\Local\Programs\Python\Python313\Lib\site-packages (from discord.py->-r requirements.txt (line 1)) (0.2.2)
+[03:29:54] Requirement already satisfied: aiohappyeyeballs>=2.5.0 in C:\Users\Ray\AppData\Local\Programs\Python\Python313\Lib\site-packages (from aiohttp<4,>=3.7.4->discord.py->-r requirements.txt (line 1)) (2.6.2)
+[03:29:54] Requirement already satisfied: aiosignal>=1.4.0 in C:\Users\Ray\AppData\Local\Programs\Python\Python313\Lib\site-packages (from aiohttp<4,>=3.7.4->discord.py->-r requirements.txt (line 1)) (1.4.0)
+[03:29:54] Requirement already satisfied: attrs>=17.3.0 in C:\Users\Ray\AppData\Local\Programs\Python\Python313\Lib\site-packages (from aiohttp<4,>=3.7.4->discord.py->-r requirements.txt (line 1)) (26.1.0)
+[03:29:54] Requirement already satisfied: frozenlist>=1.1.1 in C:\Users\Ray\AppData\Local\Programs\Python\Python313\Lib\site-packages (from aiohttp<4,>=3.7.4->discord.py->-r requirements.txt (line 1)) (1.8.0)
+[03:29:54] Requirement already satisfied: multidict<7.0,>=4.5 in C:\Users\Ray\AppData\Local\Programs\Python\Python313\Lib\site-packages (from aiohttp<4,>=3.7.4->discord.py->-r requirements.txt (line 1)) (6.7.1)
+[03:29:54] Requirement already satisfied: propcache>=0.2.0 in C:\Users\Ray\AppData\Local\Programs\Python\Python313\Lib\site-packages (from aiohttp<4,>=3.7.4->discord.py->-r requirements.txt (line 1)) (0.5.2)
+[03:29:54] Requirement already satisfied: yarl<2.0,>=1.17.0 in C:\Users\Ray\AppData\Local\Programs\Python\Python313\Lib\site-packages (from aiohttp<4,>=3.7.4->discord.py->-r requirements.txt (line 1)) (1.24.2)
+[03:29:54] Requirement already satisfied: idna>=2.0 in C:\Users\Ray\AppData\Local\Programs\Python\Python313\Lib\site-packages (from yarl<2.0,>=1.17.0->aiohttp<4,>=3.7.4->discord.py->-r requirements.txt (line 1)) (3.18)
+[03:29:54] Requirement already satisfied: cffi>=2.0.0 in C:\Users\Ray\AppData\Local\Programs\Python\Python313\Lib\site-packages (from PyNaCl->-r requirements.txt (line 3)) (2.0.0)
+[03:29:54] Requirement already satisfied: pycparser in C:\Users\Ray\AppData\Local\Programs\Python\Python313\Lib\site-packages (from cffi>=2.0.0->PyNaCl->-r requirements.txt (line 3)) (3.0)
+[03:29:55] Downloading davey-0.1.5-cp313-cp313-win_amd64.whl (872 kB)
+[03:29:55] 
+[03:29:55] ---------------------------------------- 872.4/872.4 kB 6.2 MB/s  0:00:00
+[03:29:55] Installing collected packages: davey
+[03:29:55] Successfully installed davey-0.1.5
+[03:29:55] ✅ تم تثبيت مكتبات Python بنجاح
+[03:29:55] 🚀 تشغيل البوت...
+[03:29:56] ⚠️ [2026-06-19 03:29:56] [INFO    ] discord.client: logging in using static token
+[03:29:56] ⚠️ Traceback (most recent call last):
+[03:29:56] ⚠️   File "C:\Users\Ray\AppData\Local\Programs\Python\Python313\Lib\site-packages\discord\http.py", line 844, in static_login
+    data = await self.request(Route('GET', '/users/@me'))
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Ray\AppData\Local\Programs\Python\Python313\Lib\site-packages\discord\http.py", line 778, in request
+    raise HTTPException(response, data)
+discord.errors.HTTPException: 401 Unauthorized (error code: 0): 401: Unauthorized
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+[03:29:56] ⚠️   File "C:\Users\Ray\Downloads\drawbot\bots\46a500ec-e44d-45ab-a87b-0265cf47f24c\bot.py", line 140, in <module>
+    bot.run('MTQ4NDAwNTQyNDc1ODkxNTE1OA.Gu-xTJ.Yj4vxME0wJJorqBF4UZ_ziMnbKDIS84kswRqzY')
+    ~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Ray\AppData\Local\Programs\Python\Python313\Lib\site-packages\discord\client.py", line 933, in run
+    asyncio.run(runner())
+    ~~~~~~~~~~~^^^^^^^^^^
+  File "C:\Users\Ray\AppData\Local\Programs\Python\Python313\Lib\asyncio\runners.py", line 194, in run
+    return runner.run(main)
+           ~~~~~~~~~~^^^^^^
+[03:29:56] ⚠️   File "C:\Users\Ray\AppData\Local\Programs\Python\Python313\Lib\asyncio\runners.py", line 118, in run
+    return self._loop.run_until_complete(task)
+           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^
+  File "C:\Users\Ray\AppData\Local\Programs\Python\Python313\Lib\asyncio\base_events.py", line 721, in run_until_complete
+    return future.result()
+           ~~~~~~~~~~~~~^^
+  File "C:\Users\Ray\AppData\Local\Programs\Python\Python313\Lib\site-packages\discord\client.py", line 922, in runner
+    await self.start(token, reconnect=reconnect)
+  File "C:\Users\Ray\AppData\Local\Programs\Python\Python313\Lib\site-packages\discord\client.py", line 850, in start
+    await self.login(token)
+  File "C:\Users\Ray\AppData\Local\Programs\Python\Python313\Lib\site-packages\discord\client.py", line 679, in login
+    data = await self.http.static_login(token)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Ray\AppData\Local\Programs\Python\Python313\Lib\site-packages\discord\http.py", line 848, in static_login
+    raise LoginFailure('Improper token has been passed.') from exc
+discord.errors.LoginFailure: Improper token has been passed.
+[03:29:56] ⛔ توقف البوت (code: 1, signal: null)
+[03:29:56] ♻️ إعادة تشغيل تلقائية بعد 3 ثواني (وضع 24/7)...
+[03:29:59] 🚀 تشغيل البوت...
+[03:30:00] ⚠️ [2026-06-19 03:30:00] [INFO    ] discord.client: logging in using static token
+[03:30:00] ⚠️ Traceback (most recent call last):
+[03:30:00] ⚠️   File "C:\Users\Ray\AppData\Local\Programs\Python\Python313\Lib\site-packages\discord\http.py", line 844, in static_login
+    data = await self.request(Route('GET', '/users/@me'))
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Ray\AppData\Local\Programs\Python\Python313\Lib\site-packages\discord\http.py", line 778, in request
+    raise HTTPException(response, data)
+discord.errors.HTTPException: 401 Unauthorized (error code: 0): 401: Unauthorized
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+[03:30:00] ⚠️   File "C:\Users\Ray\Downloads\drawbot\bots\46a500ec-e44d-45ab-a87b-0265cf47f24c\bot.py", line 140, in <module>
+    bot.run('MTQ4NDAwNTQyNDc1ODkxNTE1OA.Gu-xTJ.Yj4vxME0wJJorqBF4UZ_ziMnbKDIS84kswRqzY')
+    ~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Ray\AppData\Local\Programs\Python\Python313\Lib\site-packages\discord\client.py", line 933, in run
+    asyncio.run(runner())
+    ~~~~~~~~~~~^^^^^^^^^^
+  File "C:\Users\Ray\AppData\Local\Programs\Python\Python313\Lib\asyncio\runners.py", line 194, in run
+    return runner.run(main)
+           ~~~~~~~~~~^^^^^^
+  File "C:\Users\Ray\AppData\Local\Programs\Python\Python313\Lib\asyncio\runners.py", line 118, in run
+    return self._loop.run_until_complete(task)
+           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^
+[03:30:00] ⚠️   File "C:\Users\Ray\AppData\Local\Programs\Python\Python313\Lib\asyncio\base_events.py", line 721, in run_until_complete
+    return future.result()
+           ~~~~~~~~~~~~~^^
+  File "C:\Users\Ray\AppData\Local\Programs\Python\Python313\Lib\site-packages\discord\client.py", line 922, in runner
+    await self.start(token, reconnect=reconnect)
+  File "C:\Users\Ray\AppData\Local\Programs\Python\Python313\Lib\site-packages\discord\client.py", line 850, in start
+    await self.login(token)
+  File "C:\Users\Ray\AppData\Local\Programs\Python\Python313\Lib\site-packages\discord\client.py", line 679, in login
+    data = await self.http.static_login(token)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Ray\AppData\Local\Programs\Python\Python313\Lib\site-packages\discord\http.py", line 848, in static_login
+    raise LoginFailure('Improper token has been passed.') from exc
+discord.errors.LoginFailure: Improper token has been passed.
+[03:30:00] ⛔ توقف البوت (code: 1, signal: null)
+[03:30:00] ♻️ إعادة تشغيل تلقائية بعد 3 ثواني (وضع 24/7)...
+[03:30:03] 🚀 تشغيل البوت...
+[03:30:04] ⚠️ [2026-06-19 03:30:04] [INFO    ] discord.client: logging in using static token
+[03:30:04] ⚠️ Traceback (most recent call last):
+[03:30:04] ⚠️   File "C:\Users\Ray\AppData\Local\Programs\Python\Python313\Lib\site-packages\discord\http.py", line 844, in static_login
+    data = await self.request(Route('GET', '/users/@me'))
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Ray\AppData\Local\Programs\Python\Python313\Lib\site-packages\discord\http.py", line 778, in request
+    raise HTTPException(response, data)
+discord.errors.HTTPException: 401 Unauthorized (error code: 0): 401: Unauthorized
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+[03:30:04] ⚠️   File "C:\Users\Ray\Downloads\drawbot\bots\46a500ec-e44d-45ab-a87b-0265cf47f24c\bot.py", line 140, in <module>
+    bot.run('MTQ4NDAwNTQyNDc1ODkxNTE1OA.Gu-xTJ.Yj4vxME0wJJorqBF4UZ_ziMnbKDIS84kswRqzY')
+    ~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Ray\AppData\Local\Programs\Python\Python313\Lib\site-packages\discord\client.py", line 933, in run
+    asyncio.run(runner())
+    ~~~~~~~~~~~^^^^^^^^^^
+  File "C:\Users\Ray\AppData\Local\Programs\Python\Python313\Lib\asyncio\runners.py", line 194, in run
+    return runner.run(main)
+           ~~~~~~~~~~^^^^^^
+  File "C:\Users\Ray\AppData\Local\Programs\Python\Python313\Lib\asyncio\runners.py", line 118, in run
+    return self._loop.run_until_complete(task)
+           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^
+  File "C:\Users\Ray\AppData\Local\Programs\Python\Python313\Lib\asyncio\base_events.py", line 721, in run_until_complete
+    return future.result()
+           ~~~~~~~~~~~~~^^
+[03:30:04] ⚠️   File "C:\Users\Ray\AppData\Local\Programs\Python\Python313\Lib\site-packages\discord\client.py", line 922, in runner
+    await self.start(token, reconnect=reconnect)
+  File "C:\Users\Ray\AppData\Local\Programs\Python\Python313\Lib\site-packages\discord\client.py", line 850, in start
+    await self.login(token)
+  File "C:\Users\Ray\AppData\Local\Programs\Python\Python313\Lib\site-packages\discord\client.py", line 679, in login
+    data = await self.http.static_login(token)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Ray\AppData\Local\Programs\Python\Python313\Lib\site-packages\discord\http.py", line 848, in static_login
+    raise LoginFailure('Improper token has been passed.') from exc
+discord.errors.LoginFailure: Improper token has been passed.
+[03:30:04] ⛔ توقف البوت (code: 1, signal: null)
+[03:30:04] ♻️ إعادة تشغيل تلقائية بعد 3 ثواني (وضع 24/7)...
+[03:30:07] 🚀 تشغيل البوت...
+[03:30:08] ⚠️ [2026-06-19 03:30:08] [INFO    ] discord.client: logging in using static token
+[03:30:08] ⚠️ Traceback (most recent call last):
+[03:30:08] ⚠️   File "C:\Users\Ray\AppData\Local\Programs\Python\Python313\Lib\site-packages\discord\http.py", line 844, in static_login
+    data = await self.request(Route('GET', '/users/@me'))
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Ray\AppData\Local\Programs\Python\Python313\Lib\site-packages\discord\http.py", line 778, in request
+    raise HTTPException(response, data)
+discord.errors.HTTPException: 401 Unauthorized (error code: 0): 401: Unauthorized
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+[03:30:08] ⚠️   File "C:\Users\Ray\Downloads\drawbot\bots\46a500ec-e44d-45ab-a87b-0265cf47f24c\bot.py", line 140, in <module>
+    bot.run('MTQ4NDAwNTQyNDc1ODkxNTE1OA.Gu-xTJ.Yj4vxME0wJJorqBF4UZ_ziMnbKDIS84kswRqzY')
+    ~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Ray\AppData\Local\Programs\Python\Python313\Lib\site-packages\discord\client.py", line 933, in run
+    asyncio.run(runner())
+    ~~~~~~~~~~~^^^^^^^^^^
+  File "C:\Users\Ray\AppData\Local\Programs\Python\Python313\Lib\asyncio\runners.py", line 194, in run
+    return runner.run(main)
+           ~~~~~~~~~~^^^^^^
+  File "C:\Users\Ray\AppData\Local\Programs\Python\Python313\Lib\asyncio\runners.py", line 118, in run
+    return self._loop.run_until_complete(task)
+           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^
+  File "C:\Users\Ray\AppData\Local\Programs\Python\Python313\Lib\asyncio\base_events.py", line 721, in run_until_complete
+    return future.result()
+           ~~~~~~~~~~~~~^^
+[03:30:08] ⚠️   File "C:\Users\Ray\AppData\Local\Programs\Python\Python313\Lib\site-packages\discord\client.py", line 922, in runner
+    await self.start(token, reconnect=reconnect)
+  File "C:\Users\Ray\AppData\Local\Programs\Python\Python313\Lib\site-packages\discord\client.py", line 850, in start
+    await self.login(token)
+  File "C:\Users\Ray\AppData\Local\Programs\Python\Python313\Lib\site-packages\discord\client.py", line 679, in login
+    data = await self.http.static_login(token)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Ray\AppData\Local\Programs\Python\Python313\Lib\site-packages\discord\http.py", line 848, in static_login
+    raise LoginFailure('Improper token has been passed.') from exc
+discord.errors.LoginFailure: Improper token has been passed.
+[03:30:08] ⛔ توقف البوت (code: 1, signal: null)
+[03:30:08] ♻️ إعادة تشغيل تلقائية بعد 3 ثواني (وضع 24/7)...
+[03:30:11] 🚀 تشغيل البوت...
+[03:30:12] ⚠️ [2026-06-19 03:30:12] [INFO    ] discord.client: logging in using static token
+[03:30:12] ⚠️ Traceback (most recent call last):
+[03:30:12] ⚠️   File "C:\Users\Ray\AppData\Local\Programs\Python\Python313\Lib\site-packages\discord\http.py", line 844, in static_login
+    data = await self.request(Route('GET', '/users/@me'))
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Ray\AppData\Local\Programs\Python\Python313\Lib\site-packages\discord\http.py", line 778, in request
+    raise HTTPException(response, data)
+[03:30:12] ⚠️ discord.errors.HTTPException: 401 Unauthorized (error code: 0): 401: Unauthorized
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+[03:30:12] ⚠️   File "C:\Users\Ray\Downloads\drawbot\bots\46a500ec-e44d-45ab-a87b-0265cf47f24c\bot.py", line 140, in <module>
+    bot.run('MTQ4NDAwNTQyNDc1ODkxNTE1OA.Gu-xTJ.Yj4vxME0wJJorqBF4UZ_ziMnbKDIS84kswRqzY')
+    ~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Ray\AppData\Local\Programs\Python\Python313\Lib\site-packages\discord\client.py", line 933, in run
+    asyncio.run(runner())
+    ~~~~~~~~~~~^^^^^^^^^^
+  File "C:\Users\Ray\AppData\Local\Programs\Python\Python313\Lib\asyncio\runners.py", line 194, in run
+    return runner.run(main)
+           ~~~~~~~~~~^^^^^^
+[03:30:12] ⚠️   File "C:\Users\Ray\AppData\Local\Programs\Python\Python313\Lib\asyncio\runners.py", line 118, in run
+    return self._loop.run_until_complete(task)
+           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^
+  File "C:\Users\Ray\AppData\Local\Programs\Python\Python313\Lib\asyncio\base_events.py", line 721, in run_until_complete
+    return future.result()
+           ~~~~~~~~~~~~~^^
+  File "C:\Users\Ray\AppData\Local\Programs\Python\Python313\Lib\site-packages\discord\client.py", line 922, in runner
+    await self.start(token, reconnect=reconnect)
+  File "C:\Users\Ray\AppData\Local\Programs\Python\Python313\Lib\site-packages\discord\client.py", line 850, in start
+    await self.login(token)
+  File "C:\Users\Ray\AppData\Local\Programs\Python\Python313\Lib\site-packages\discord\client.py", line 679, in login
+    data = await self.http.static_login(token)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Ray\AppData\Local\Programs\Python\Python313\Lib\site-packages\discord\http.py", line 848, in static_login
+    raise LoginFailure('Improper token has been passed.') from exc
+discord.errors.LoginFailure: Improper token has been passed.
+[03:30:12] ⛔ توقف البوت (code: 1, signal: null)
+[03:30:12] ♻️ إعادة تشغيل تلقائية بعد 3 ثواني (وضع 24/7)...
+[03:30:15] 🚀 تشغيل البوت...
+[03:30:16] ⚠️ [2026-06-19 03:30:16] [INFO    ] discord.client: logging in using static token
+[03:30:16] ⚠️ Traceback (most recent call last):
+[03:30:16] ⚠️   File "C:\Users\Ray\AppData\Local\Programs\Python\Python313\Lib\site-packages\discord\http.py", line 844, in static_login
+    data = await self.request(Route('GET', '/users/@me'))
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Ray\AppData\Local\Programs\Python\Python313\Lib\site-packages\discord\http.py", line 778, in request
+    raise HTTPException(response, data)
+discord.errors.HTTPException: 401 Unauthorized (error code: 0): 401: Unauthorized
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+[03:30:16] ⚠️   File "C:\Users\Ray\Downloads\drawbot\bots\46a500ec-e44d-45ab-a87b-0265cf47f24c\bot.py", line 140, in <module>
+    bot.run('MTQ4NDAwNTQyNDc1ODkxNTE1OA.Gu-xTJ.Yj4vxME0wJJorqBF4UZ_ziMnbKDIS84kswRqzY')
+    ~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Ray\AppData\Local\Programs\Python\Python313\Lib\site-packages\discord\client.py", line 933, in run
+    asyncio.run(runner())
+    ~~~~~~~~~~~^^^^^^^^^^
+  File "C:\Users\Ray\AppData\Local\Programs\Python\Python313\Lib\asyncio\runners.py", line 194, in run
+    return runner.run(main)
+           ~~~~~~~~~~^^^^^^
+  File "C:\Users\Ray\AppData\Local\Programs\Python\Python313\Lib\asyncio\runners.py", line 118, in run
+    return self._loop.run_until_complete(task)
+           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^
+[03:30:16] ⚠️   File "C:\Users\Ray\AppData\Local\Programs\Python\Python313\Lib\asyncio\base_events.py", line 721, in run_until_complete
+    return future.result()
+           ~~~~~~~~~~~~~^^
+  File "C:\Users\Ray\AppData\Local\Programs\Python\Python313\Lib\site-packages\discord\client.py", line 922, in runner
+    await self.start(token, reconnect=reconnect)
+  File "C:\Users\Ray\AppData\Local\Programs\Python\Python313\Lib\site-packages\discord\client.py", line 850, in start
+    await self.login(token)
+  File "C:\Users\Ray\AppData\Local\Programs\Python\Python313\Lib\site-packages\discord\client.py", line 679, in login
+    data = await self.http.static_login(token)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Ray\AppData\Local\Programs\Python\Python313\Lib\site-packages\discord\http.py", line 848, in static_login
+    raise LoginFailure('Improper token has been passed.') from exc
+discord.errors.LoginFailure: Improper token has been passed.
+[03:30:16] ⛔ توقف البوت (code: 1, signal: null)
+[03:30:16] ♻️ إعادة تشغيل تلقائية بعد 3 ثواني (وضع 24/7)...
+[03:30:19] 🚀 تشغيل البوت...
+[03:30:20] ⚠️ [2026-06-19 03:30:20] [INFO    ] discord.client: logging in using static token
+[03:30:20] ⚠️ Traceback (most recent call last):
+[03:30:20] ⚠️   File "C:\Users\Ray\AppData\Local\Programs\Python\Python313\Lib\site-packages\discord\http.py", line 844, in static_login
+    data = await self.request(Route('GET', '/users/@me'))
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Ray\AppData\Local\Programs\Python\Python313\Lib\site-packages\discord\http.py", line 778, in request
+    raise HTTPException(response, data)
+[03:30:20] ⚠️ discord.errors.HTTPException: 401 Unauthorized (error code: 0): 401: Unauthorized
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+[03:30:20] ⚠️   File "C:\Users\Ray\Downloads\drawbot\bots\46a500ec-e44d-45ab-a87b-0265cf47f24c\bot.py", line 140, in <module>
+    bot.run('MTQ4NDAwNTQyNDc1ODkxNTE1OA.Gu-xTJ.Yj4vxME0wJJorqBF4UZ_ziMnbKDIS84kswRqzY')
+    ~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Ray\AppData\Local\Programs\Python\Python313\Lib\site-packages\discord\client.py", line 933, in run
+    asyncio.run(runner())
+    ~~~~~~~~~~~^^^^^^^^^^
+  File "C:\Users\Ray\AppData\Local\Programs\Python\Python313\Lib\asyncio\runners.py", line 194, in run
+    return runner.run(main)
+           ~~~~~~~~~~^^^^^^
+  File "C:\Users\Ray\AppData\Local\Programs\Python\Python313\Lib\asyncio\runners.py", line 118, in run
+    return self._loop.run_until_complete(task)
+           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^
+  File "C:\Users\Ray\AppData\Local\Programs\Python\Python313\Lib\asyncio\base_events.py", line 721, in run_until_complete
+    return future.result()
+           ~~~~~~~~~~~~~^^
+  File "C:\Users\Ray\AppData\Local\Programs\Python\Python313\Lib\site-packages\discord\client.py", line 922, in runner
+    await self.start(token, reconnect=reconnect)
+  File "C:\Users\Ray\AppData\Local\Programs\Python\Python313\Lib\site-packages\discord\client.py", line 850, in start
+    await self.login(token)
+  File "C:\Users\Ray\AppData\Local\Programs\Python\Python313\Lib\site-packages\discord\client.py", line 679, in login
+    data = await self.http.static_login(token)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Ray\AppData\Local\Programs\Python\Python313\Lib\site-packages\discord\http.py", line 848, in static_login
+    raise LoginFailure('Improper token has been passed.') from exc
+discord.errors.LoginFailure: Improper token has been passed.
+[03:30:20] ⛔ توقف البوت (code: 1, signal: null)
+[03:30:20] ♻️ إعادة تشغيل تلقائية بعد 3 ثواني (وضع 24/7)...
+[03:30:23] 🚀 تشغيل البوت...
+[03:30:24] ⚠️ [2026-06-19 03:30:24] [INFO    ] discord.client: logging in using static token
+[03:30:24] ⚠️ Traceback (most recent call last):
+[03:30:24] ⚠️   File "C:\Users\Ray\AppData\Local\Programs\Python\Python313\Lib\site-packages\discord\http.py", line 844, in static_login
+    data = await self.request(Route('GET', '/users/@me'))
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Ray\AppData\Local\Programs\Python\Python313\Lib\site-packages\discord\http.py", line 778, in request
+    raise HTTPException(response, data)
+discord.errors.HTTPException: 401 Unauthorized (error code: 0): 401: Unauthorized
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+[03:30:24] ⚠️   File "C:\Users\Ray\Downloads\drawbot\bots\46a500ec-e44d-45ab-a87b-0265cf47f24c\bot.py", line 140, in <module>
+    bot.run('MTQ4NDAwNTQyNDc1ODkxNTE1OA.Gu-xTJ.Yj4vxME0wJJorqBF4UZ_ziMnbKDIS84kswRqzY')
+    ~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Ray\AppData\Local\Programs\Python\Python313\Lib\site-packages\discord\client.py", line 933, in run
+    asyncio.run(runner())
+    ~~~~~~~~~~~^^^^^^^^^^
+  File "C:\Users\Ray\AppData\Local\Programs\Python\Python313\Lib\asyncio\runners.py", line 194, in run
+    return runner.run(main)
+           ~~~~~~~~~~^^^^^^
+  File "C:\Users\Ray\AppData\Local\Programs\Python\Python313\Lib\asyncio\runners.py", line 118, in run
+    return self._loop.run_until_complete(task)
+           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^
+[03:30:24] ⚠️   File "C:\Users\Ray\AppData\Local\Programs\Python\Python313\Lib\asyncio\base_events.py", line 721, in run_until_complete
+    return future.result()
+           ~~~~~~~~~~~~~^^
+  File "C:\Users\Ray\AppData\Local\Programs\Python\Python313\Lib\site-packages\discord\client.py", line 922, in runner
+    await self.start(token, reconnect=reconnect)
+  File "C:\Users\Ray\AppData\Local\Programs\Python\Python313\Lib\site-packages\discord\client.py", line 850, in start
+    await self.login(token)
+  File "C:\Users\Ray\AppData\Local\Programs\Python\Python313\Lib\site-packages\discord\client.py", line 679, in login
+    data = await self.http.static_login(token)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Ray\AppData\Local\Programs\Python\Python313\Lib\site-packages\discord\http.py", line 848, in static_login
+    raise LoginFailure('Improper token has been passed.') from exc
+discord.errors.LoginFailure: Improper token has been passed.
+[03:30:24] ⛔ توقف البوت (code: 1, signal: null)
+[03:30:24] ♻️ إعادة تشغيل تلقائية بعد 3 ثواني (وضع 24/7)...
+[03:30:27] 🚀 تشغيل البوت...
+[03:30:28] ⚠️ [2026-06-19 03:30:28] [INFO    ] discord.client: logging in using static token
+[03:30:28] ⚠️ Traceback (most recent call last):
+[03:30:28] ⚠️   File "C:\Users\Ray\AppData\Local\Programs\Python\Python313\Lib\site-packages\discord\http.py", line 844, in static_login
+    data = await self.request(Route('GET', '/users/@me'))
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Ray\AppData\Local\Programs\Python\Python313\Lib\site-packages\discord\http.py", line 778, in request
+    raise HTTPException(response, data)
+discord.errors.HTTPException: 401 Unauthorized (error code: 0): 401: Unauthorized
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+[03:30:28] ⚠️   File "C:\Users\Ray\Downloads\drawbot\bots\46a500ec-e44d-45ab-a87b-0265cf47f24c\bot.py", line 140, in <module>
+    bot.run('MTQ4NDAwNTQyNDc1ODkxNTE1OA.Gu-xTJ.Yj4vxME0wJJorqBF4UZ_ziMnbKDIS84kswRqzY')
+    ~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Ray\AppData\Local\Programs\Python\Python313\Lib\site-packages\discord\client.py", line 933, in run
+    asyncio.run(runner())
+    ~~~~~~~~~~~^^^^^^^^^^
+  File "C:\Users\Ray\AppData\Local\Programs\Python\Python313\Lib\asyncio\runners.py", line 194, in run
+    return runner.run(main)
+           ~~~~~~~~~~^^^^^^
+[03:30:28] ⚠️   File "C:\Users\Ray\AppData\Local\Programs\Python\Python313\Lib\asyncio\runners.py", line 118, in run
+    return self._loop.run_until_complete(task)
+           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^
+  File "C:\Users\Ray\AppData\Local\Programs\Python\Python313\Lib\asyncio\base_events.py", line 721, in run_until_complete
+    return future.result()
+           ~~~~~~~~~~~~~^^
+  File "C:\Users\Ray\AppData\Local\Programs\Python\Python313\Lib\site-packages\discord\client.py", line 922, in runner
+    await self.start(token, reconnect=reconnect)
+  File "C:\Users\Ray\AppData\Local\Programs\Python\Python313\Lib\site-packages\discord\client.py", line 850, in start
+    await self.login(token)
+  File "C:\Users\Ray\AppData\Local\Programs\Python\Python313\Lib\site-packages\discord\client.py", line 679, in login
+    data = await self.http.static_login(token)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Ray\AppData\Local\Programs\Python\Python313\Lib\site-packages\discord\http.py", line 848, in static_login
+    raise LoginFailure('Improper token has been passed.') from exc
+discord.errors.LoginFailure: Improper token has been passed.
+[03:30:29] ⛔ توقف البوت (code: 1, signal: null)
+[03:30:29] ♻️ إعادة تشغيل تلقائية بعد 3 ثواني (وضع 24/7)...
+[03:30:32] 🚀 تشغيل البوت...
+[03:30:32] ⚠️ [2026-06-19 03:30:32] [INFO    ] discord.client: logging in using static token
+[03:30:33] ⚠️ Traceback (most recent call last):
+[03:30:33] ⚠️   File "C:\Users\Ray\AppData\Local\Programs\Python\Python313\Lib\site-packages\discord\http.py", line 844, in static_login
+    data = await self.request(Route('GET', '/users/@me'))
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Ray\AppData\Local\Programs\Python\Python313\Lib\site-packages\discord\http.py", line 778, in request
+    raise HTTPException(response, data)
+discord.errors.HTTPException: 401 Unauthorized (error code: 0): 401: Unauthorized
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+[03:30:33] ⚠️   File "C:\Users\Ray\Downloads\drawbot\bots\46a500ec-e44d-45ab-a87b-0265cf47f24c\bot.py", line 140, in <module>
+    bot.run('MTQ4NDAwNTQyNDc1ODkxNTE1OA.Gu-xTJ.Yj4vxME0wJJorqBF4UZ_ziMnbKDIS84kswRqzY')
+    ~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Ray\AppData\Local\Programs\Python\Python313\Lib\site-packages\discord\client.py", line 933, in run
+    asyncio.run(runner())
+    ~~~~~~~~~~~^^^^^^^^^^
+  File "C:\Users\Ray\AppData\Local\Programs\Python\Python313\Lib\asyncio\runners.py", line 194, in run
+    return runner.run(main)
+           ~~~~~~~~~~^^^^^^
+  File "C:\Users\Ray\AppData\Local\Programs\Python\Python313\Lib\asyncio\runners.py", line 118, in run
+    return self._loop.run_until_complete(task)
+           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^
+[03:30:33] ⚠️   File "C:\Users\Ray\AppData\Local\Programs\Python\Python313\Lib\asyncio\base_events.py", line 721, in run_until_complete
+    return future.result()
+           ~~~~~~~~~~~~~^^
+  File "C:\Users\Ray\AppData\Local\Programs\Python\Python313\Lib\site-packages\discord\client.py", line 922, in runner
+    await self.start(token, reconnect=reconnect)
+  File "C:\Users\Ray\AppData\Local\Programs\Python\Python313\Lib\site-packages\discord\client.py", line 850, in start
+    await self.login(token)
+  File "C:\Users\Ray\AppData\Local\Programs\Python\Python313\Lib\site-packages\discord\client.py", line 679, in login
+    data = await self.http.static_login(token)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Ray\AppData\Local\Programs\Python\Python313\Lib\site-packages\discord\http.py", line 848, in static_login
+    raise LoginFailure('Improper token has been passed.') from exc
+discord.errors.LoginFailure: Improper token has been passed.
+[03:30:33] ⛔ توقف البوت (code: 1, signal: null)
+[03:30:33] ♻️ إعادة تشغيل تلقائية بعد 3 ثواني (وضع 24/7)...
+[03:30:34] 📤 تم رفع ملفات جديدة (ZIP) بنجاح
+[03:30:36] 🚀 تشغيل البوت...
+[03:30:36] ⚠️ [2026-06-19 03:30:36] [INFO    ] discord.client: logging in using static token
+[03:30:37] 🛑 إيقاف البوت...
+[03:30:37] ⛔ توقف البوت (code: 1, signal: null)
+[03:30:38] ⏳ تثبيت مكتبات Python (pip install -r requirements.txt)...
+[03:30:38] Requirement already satisfied: discord.py in C:\Users\Ray\AppData\Local\Programs\Python\Python313\Lib\site-packages (from -r requirements.txt (line 1)) (2.7.1)
+[03:30:38] Requirement already satisfied: yt-dlp in C:\Users\Ray\AppData\Local\Programs\Python\Python313\Lib\site-packages (from -r requirements.txt (line 2)) (2026.6.9)
+[03:30:38] Requirement already satisfied: PyNaCl in C:\Users\Ray\AppData\Local\Programs\Python\Python313\Lib\site-packages (from -r requirements.txt (line 3)) (1.6.2)
+[03:30:38] Requirement already satisfied: davey in C:\Users\Ray\AppData\Local\Programs\Python\Python313\Lib\site-packages (from -r requirements.txt (line 4)) (0.1.5)
+[03:30:38] Requirement already satisfied: aiohttp<4,>=3.7.4 in C:\Users\Ray\AppData\Local\Programs\Python\Python313\Lib\site-packages (from discord.py->-r requirements.txt (line 1)) (3.14.1)
+[03:30:38] Requirement already satisfied: audioop-lts in C:\Users\Ray\AppData\Local\Programs\Python\Python313\Lib\site-packages (from discord.py->-r requirements.txt (line 1)) (0.2.2)
+[03:30:38] Requirement already satisfied: aiohappyeyeballs>=2.5.0 in C:\Users\Ray\AppData\Local\Programs\Python\Python313\Lib\site-packages (from aiohttp<4,>=3.7.4->discord.py->-r requirements.txt (line 1)) (2.6.2)
+[03:30:38] Requirement already satisfied: aiosignal>=1.4.0 in C:\Users\Ray\AppData\Local\Programs\Python\Python313\Lib\site-packages (from aiohttp<4,>=3.7.4->discord.py->-r requirements.txt (line 1)) (1.4.0)
+[03:30:38] Requirement already satisfied: attrs>=17.3.0 in C:\Users\Ray\AppData\Local\Programs\Python\Python313\Lib\site-packages (from aiohttp<4,>=3.7.4->discord.py->-r requirements.txt (line 1)) (26.1.0)
+[03:30:38] Requirement already satisfied: frozenlist>=1.1.1 in C:\Users\Ray\AppData\Local\Programs\Python\Python313\Lib\site-packages (from aiohttp<4,>=3.7.4->discord.py->-r requirements.txt (line 1)) (1.8.0)
+[03:30:38] Requirement already satisfied: multidict<7.0,>=4.5 in C:\Users\Ray\AppData\Local\Programs\Python\Python313\Lib\site-packages (from aiohttp<4,>=3.7.4->discord.py->-r requirements.txt (line 1)) (6.7.1)
+[03:30:38] Requirement already satisfied: propcache>=0.2.0 in C:\Users\Ray\AppData\Local\Programs\Python\Python313\Lib\site-packages (from aiohttp<4,>=3.7.4->discord.py->-r requirements.txt (line 1)) (0.5.2)
+[03:30:38] Requirement already satisfied: yarl<2.0,>=1.17.0 in C:\Users\Ray\AppData\Local\Programs\Python\Python313\Lib\site-packages (from aiohttp<4,>=3.7.4->discord.py->-r requirements.txt (line 1)) (1.24.2)
+[03:30:38] Requirement already satisfied: idna>=2.0 in C:\Users\Ray\AppData\Local\Programs\Python\Python313\Lib\site-packages (from yarl<2.0,>=1.17.0->aiohttp<4,>=3.7.4->discord.py->-r requirements.txt (line 1)) (3.18)
+[03:30:38] Requirement already satisfied: cffi>=2.0.0 in C:\Users\Ray\AppData\Local\Programs\Python\Python313\Lib\site-packages (from PyNaCl->-r requirements.txt (line 3)) (2.0.0)
+[03:30:38] Requirement already satisfied: pycparser in C:\Users\Ray\AppData\Local\Programs\Python\Python313\Lib\site-packages (from cffi>=2.0.0->PyNaCl->-r requirements.txt (line 3)) (3.0)
+[03:30:39] ✅ تم تثبيت مكتبات Python بنجاح
+[03:30:39] 🚀 تشغيل البوت...
+[03:30:39] ⚠️ [2026-06-19 03:30:39] [INFO    ] discord.client: logging in using static token
+[03:30:40] ⚠️ [2026-06-19 03:30:40] [INFO    ] discord.gateway: Shard ID None has connected to Gateway (Session ID: 3498ddf553b9e4b4297f95d8f8969185).
+[03:30:42] ✅ Logged in successfully as Draw#9502
+[03:30:42] ⚠️ [2026-06-19 03:30:42] [INFO    ] discord.voice_state: Connecting to voice...
+[2026-06-19 03:30:42] [INFO    ] discord.voice_state: Starting voice handshake... (connection attempt 1)
+[03:30:43] ⚠️ [2026-06-19 03:30:43] [INFO    ] discord.voice_state: Voice handshake complete. Endpoint found: c-mrs01-59a82b32.discord.media:443
+[03:30:43] ⚠️ [2026-06-19 03:30:43] [INFO    ] discord.voice_state: Voice connection complete.
+[03:30:43] 🔊 Connected to voice channel: .gg/Draw (Deafened)
